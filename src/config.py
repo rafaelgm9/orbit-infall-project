@@ -7,8 +7,25 @@ G_GRAV = 4.3e-9  # Mpc (km/s)^2 / M_sun
 TO_GYR = (3_086. / 3.1536) / 0.672  # Convert Mpc s / km / h to Gyr
 PARTMASS = 7.754657e+10  # M_sun / h
 RHOCRIT = 2.77536627e+11  #
-COSMO = {'flat': True, 'H0': 67.2, 'Om0': 0.3, 'Ob0': 0.049, 'sigma8': 0.81,
-         'ns': 0.95}
+COSMO = {
+    "flat": True,
+    "H0": 70,
+    "Om0": 0.3,
+    "Ob0": 0.0469,
+    "sigma8": 0.8355,
+    "ns": 1,
+}
+COSMO_CLASS = {
+    "output": "mPk",
+    "non linear": "halofit",
+    "Omega_b": 0.0469,
+    "Omega_cdm": 0.3 - 0.0469,
+    "h": 0.70,
+    "sigma8": 0.8355,
+    "n_s": 1,
+    "P_k_max_1/Mpc": 1000,
+    "z_max_pk": 10.0,  # Default value is 10
+}
 RHOM = RHOCRIT * COSMO["Om0"]
 
 RSOFT = 0.015  # Softening length in Mpc/h
