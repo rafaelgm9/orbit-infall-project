@@ -95,12 +95,11 @@ def xi_inf_post(params, *args):
     The covariance C is regulated by an additional parameter `delta`.
     """
     # Unpack data
-    x, y, covy, mask, masses, biases = args
+    x, y, covy, mask, masses, biases, mp = args
 
     # Unpack parameters
     logA, a, logV, v, logf = params
 
-    mp = 1e14
     alpha = (10**logA * (masses / mp) ** a) * (1 + (masses / mp)) ** -a
     vsc = 10**logV * (masses / mp) ** v
     beta = 1.6 / alpha
